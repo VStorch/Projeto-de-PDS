@@ -1,0 +1,11 @@
+# Ignora binários compilados
+/bin/
+
+# Arquivos temporários e de backup
+*.tmp
+*.bak
+*.log
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
