@@ -58,6 +58,7 @@ public class QuemSomos extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		// HTML text
 		String html = """
 				<html>
 					<h2 text-align: center; style='margin-top: 5px'>Quem Somos</h2>

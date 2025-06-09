@@ -110,8 +110,7 @@ public class Login extends JFrame {
 		lblCliqueAqui.setForeground(new Color(0, 0, 255));
 		lblCliqueAqui.setFont(new Font("Arial", Font.PLAIN, 12));
 		lblCliqueAqui.setBounds(243, 199, 77, 20);
-		// Analizar a causa desse erro
-		//lblCliqueAqui.setCursor(Cursor.HAND_CURSOR);
+		lblCliqueAqui.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		lblCliqueAqui.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -134,7 +133,7 @@ public class Login extends JFrame {
 					MainController.abrirMenu(usuario);
 				}
 				else {
-					JOptionPane.showInternalMessageDialog(null, "Usuário não encontrado", "Erro no Login", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Usuário não encontrado", "Erro no Login", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		});

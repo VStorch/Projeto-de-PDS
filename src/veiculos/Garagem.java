@@ -9,27 +9,36 @@ public class Garagem {
 
 	private LocalDate dataReti;
 	
-	private List<Carro> garagem = new ArrayList<>();
+	private static List<Carro> garagem = new ArrayList<>();
 
-	public Garagem() {
+	static {
 		garagem.add(new Carro("SUV", "Captur", null, true));
 		garagem.add(new Carro("Economico", "Carroça", "JSHF7DG", true));
-		garagem.add(new Carro("Luxu", "Uno com escada", null, true));
-		garagem.add(new Carro("SUV", "Jeep", "Esta placa não foi alterada", true));
+		garagem.add(new Carro("Luxo", "Uno com escada", null, true));
+		garagem.add(new Carro("SUV", "Jeep", "Placa não alterada", true));
 	}
 	
-	public void reservar() {
-		for (Carro carro : garagem) {
-			if (carro.isDisponivel() == true) {
-				garagem.remove(carro);
-				// Implementar data
-			}
+	public static boolean reservar(Carro carro, LocalDate dataReti) {
+		if (carro.isDisponivel() == true) {
+			carro.setDisponivel(false);
+			carro.setDataReserva(dataReti);
+			return true;
 		}
+		return false;
 	}
 	
 	// Method to manager add new cars
-	public void adicionar(Carro carro) {
+	public static void adicionar(Carro carro) {
 		garagem.add(carro);
 	}
 	
+	public static List<Carro> carrosDisponiveis() {
+		List<Carro> disponiveis = new ArrayList<>();
+		for(Carro carro : garagem) {
+			if (carro.isDisponivel()) {
+				disponiveis.add(carro);
+			}
+		}
+		return disponiveis;
+	}
 }

@@ -35,7 +35,6 @@ public class MainController {
 	}
 	
 	public static void abrirSuaConta(Usuario usuario) {
-		//new SuaConta(usuario).setVisible(true);
 		SuaConta suaConta = new SuaConta(usuario);
 		suaConta.setVisible(true);
 	}

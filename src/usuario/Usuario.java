@@ -16,7 +16,8 @@ public class Usuario {
 	private String cidade;
 	private String rua;
 	private String numero;
-	
+	private String modeloCarro;
+	private String data;
 	
 	public Usuario(String nomeUsu, String nome, String cpf, String senha) {
 		this.nomeUsu = nomeUsu;
@@ -25,22 +26,48 @@ public class Usuario {
 		this.senha = senha;
 	}
 
+	public void setUltimaReserva(String modelo, String data) {
+		this.modeloCarro = modelo;
+		this.data = data;
+	}
+	
+	public String getModeloCarro() {
+		return modeloCarro;
+	}
+	
+	public String getData() {
+		return data;
+	}
+	
 	public String getNomeUsu() {
 		return nomeUsu;
+	}
+	
+	public void setNomeUsu(String nomeUsu) {
+		this.nomeUsu = nomeUsu;
 	}
 	
 	public String getNome() {
 		return nome;
 	}
 	
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
 	public String getCpf(){
 		return cpf;
 	}
 	
+	// I don't create the method setCPF because a person's CPF can't be altered
+	
 	public String getSenha() {
 		return senha;
 	}
-
+	
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
 
 	public LocalDate getDataNasc() {
 		return dataNasc;

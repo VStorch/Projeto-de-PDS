@@ -3,6 +3,7 @@ package Telas;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Font;
+
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -104,10 +105,10 @@ public class Menu extends JFrame {
 		// Specifying the part of the panel occupied by lblMensOla
 		contentPane.add(lblMensOla, BorderLayout.NORTH);
 		
+		
 		JLabel lblInfoUltimoAlug = new JLabel("<html>"
-				+ "<div style= 'margin-top:40px;'>Modelo do Carro: </div>"
-				+ "<div style= 'margin-top:15px;'>Data da Retirada: </div>"
-				+ "<div style= 'margin-top:15px;'>Data de devolução:</div></html>");
+				+ "<div style= 'margin-top:40px;'>Modelo do Carro: "+usuario.getModeloCarro()+" </div>"
+				+ "<div style= 'margin-top:15px;'>Data da Retirada: "+usuario.getData()+"</div>");
 		lblInfoUltimoAlug.setVerticalAlignment(SwingConstants.TOP);
 		lblInfoUltimoAlug.setFont(new Font("Arial", Font.PLAIN, 16));
 		lblInfoUltimoAlug.setHorizontalAlignment(SwingConstants.LEFT);
