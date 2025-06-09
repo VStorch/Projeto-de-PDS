@@ -11,6 +11,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -64,6 +65,8 @@ public class Servicos extends JFrame {
 	
 
 	public Servicos(Usuario usuario) {
+		this.usuario = usuario;
+		
 		setTitle("Serviços");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -198,19 +201,21 @@ public class Servicos extends JFrame {
 				
 				btnReservar.addActionListener(ev -> {
 					String data = JOptionPane.showInputDialog(null, "Digite a Data da Reserva:", "Reserva", JOptionPane.INFORMATION_MESSAGE);
-					if(data != null && !data.trim().isEmpty()) {
+					if(data != null && !data.isEmpty()) {
 						try {
 							DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-							LocalDate dataReserva = LocalDate.parse(data.trim(), formatter);
+							LocalDate dataReserva = LocalDate.parse(data, formatter);
 							boolean sucesso = Garagem.reservar(carro, dataReserva);
 							
-							if (sucesso) {
+							if (sucesso == true) {
 								String dataF = dataReserva.format(formatter);
 				                JOptionPane.showMessageDialog(null, "Carro " + carro.getModelo() + " reservado para " + dataF, "Reserva Realizada", JOptionPane.INFORMATION_MESSAGE);
 								atualizarCarros(tipoSelecionado, panel);
 								usuario.setUltimaReserva(carro.getModelo(), dataF);
+
 							}
-						} catch (Exception ex) {
+
+						} catch (DateTimeParseException ex) {
 				            JOptionPane.showMessageDialog(null, "Formato de data inválido", "Erro", JOptionPane.ERROR_MESSAGE);
 						}
 					}
