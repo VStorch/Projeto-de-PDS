@@ -127,10 +127,16 @@ public class Login extends JFrame {
 				// convert passwordSenha for comparison
 				String senha = new String (passwordSenha.getPassword());
 				Usuario usuario = BancoUsuarios.autenticar(textNomeUsu.getText(), senha);
+				String admin = textNomeUsu.getText();
 				
-				if (usuario != null) {
+				if (admin.equals("admin") && senha.equals("admin")) {
 					dispose();
-					MainController.abrirMenu(usuario);
+					MainController.abrirTelaAdmin();
+				}
+				
+				else if (usuario != null) {
+						dispose();
+						MainController.abrirMenu(usuario);
 				}
 				else {
 					JOptionPane.showMessageDialog(null, "Usuário não encontrado", "Erro no Login", JOptionPane.ERROR_MESSAGE);

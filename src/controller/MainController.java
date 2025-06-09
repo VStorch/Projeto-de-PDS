@@ -6,6 +6,7 @@ import Telas.QuemSomos;
 import Telas.RecSenha;
 import Telas.Servicos;
 import Telas.SuaConta;
+import Telas.TelaAdmin;
 import usuario.Usuario;
 
 public class MainController {
@@ -17,6 +18,11 @@ public class MainController {
 	public static void abrirLogin() {
 		Login login = new Login();
 		login.setVisible(true);
+	}
+	
+	public static void abrirTelaAdmin() {
+		TelaAdmin telaA = new TelaAdmin();
+		telaA.setVisible(true);
 	}
 	
 	public static void abrirRecSenha() {

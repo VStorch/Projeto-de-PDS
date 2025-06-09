@@ -4,6 +4,8 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -52,7 +54,7 @@ public class Cadastro extends JFrame {
 	public Cadastro() {
 		setResizable(false);
 		setTitle("Tela de Cadastro");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 473, 342);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
@@ -147,6 +149,12 @@ public class Cadastro extends JFrame {
 		});
 		btnCadastrar.setBounds(245, 267, 98, 25);
 		contentPane.add(btnCadastrar);
+		
+		addWindowListener(new WindowAdapter() {
+		    public void windowClosed(WindowEvent e) {
+		        MainController.abrirLogin();
+		    }
+		});
 		
 	}
 

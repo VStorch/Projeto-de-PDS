@@ -48,8 +48,7 @@ public class Servicos extends JFrame {
 				try {
 					
 					Usuario usuario = new Usuario("JSilva", "João Silva", "027.113.900-55","1234");
-
-					
+	
 					Servicos frame = new Servicos(usuario);
 					frame.setVisible(true);
 				} catch (Exception e) {

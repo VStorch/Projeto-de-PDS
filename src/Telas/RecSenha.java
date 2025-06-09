@@ -4,6 +4,8 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -50,7 +52,7 @@ public class RecSenha extends JFrame {
 	public RecSenha() {
 		setTitle("Recupere sua Senha");
 		setResizable(false);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 313);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
@@ -133,5 +135,11 @@ public class RecSenha extends JFrame {
 		});
 		btnConf.setBounds(268, 234, 93, 29);
 		contentPane.add(btnConf);
+		
+		addWindowListener(new WindowAdapter() {
+		    public void windowClosed(WindowEvent e) {
+		        MainController.abrirLogin();
+		    }
+		});
 	}
 }
