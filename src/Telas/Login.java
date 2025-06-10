@@ -79,7 +79,7 @@ public class Login extends JFrame {
 		
 		JLabel lblCadastro = new JLabel(" Se cadastre aqui.");
 		lblCadastro.setForeground(new Color(0, 0, 255));
-		lblCadastro.setCursor(new Cursor(Cursor.HAND_CURSOR)); // Ativa a mãosinha
+		lblCadastro.setCursor(new Cursor(Cursor.HAND_CURSOR)); // Active the hand
 		lblCadastro.addMouseListener(new MouseAdapter() {
 			// This method start when label is clicked and open the registration screen
 			@Override
